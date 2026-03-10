@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+hashes.json
+hasher.json
+test_folder/
+

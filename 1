@@ -1,0 +1,32 @@
+import json 
+from directory_hasher import hash_directory
+
+def verify_integrity(directory, db_file="hashes.json"):
+
+    with open(db_file, "r") as f:
+        saved_hashes = json.load(f)
+
+
+    current_hashes = hash_directory(directory)
+
+    print("\n-------Integrity Check Report--------\n")
+
+
+    for file in saved_hashes:
+
+        if file not in current_hashes:
+            print(f"DELETED: {file}")
+
+        elif saved_hases[file] != current_hashes[file]:
+            print(f"Moved:{file}")
+    for file in current_hashes:
+        if file not in saved_hashes:
+            print(f"New File: { file}")
+
+directory = "test_folder"
+
+verify_integrity(directory)
+
+
+
+
